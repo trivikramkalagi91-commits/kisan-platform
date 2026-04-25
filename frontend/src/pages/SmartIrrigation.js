@@ -7,7 +7,7 @@ const T = {
   subtitle: 'Live weather-based irrigation recommendations for all your crops.',
   loadingOpts: 'Loading options...',
   fetchingData: 'Fetching data...',
-  farmDetails: '🌾 Farm Details',
+  farmDetails: 'Farm Details',
   selectCrop: 'Select Crop',
   selectSoil: 'Select Soil Type',
   temperature: 'Temperature (°C)',

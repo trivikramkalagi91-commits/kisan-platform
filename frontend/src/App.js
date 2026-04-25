@@ -44,7 +44,7 @@ export default function App() {
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: '24px 16px', color: '#9ca3af', fontSize: 13, borderTop: '1px solid #e5e7eb', background: 'white', marginTop: 40 }}>
-        <div style={{ fontSize: 24, marginBottom: 8 }}>🌾</div>
+        <div style={{ fontSize: 24, marginBottom: 8 }}></div>
         <div style={{ fontWeight: 600, color: '#374151', marginBottom: 4 }}>Kisan Platform</div>
         <div>Made with care for Indian farmers · Free forever · No commission</div>
         <div style={{ marginTop: 8 }}>Data source: AgMarknet, Government of India</div>

@@ -11,7 +11,7 @@ function JobCard({ job, onApply }) {
         <div>
           <div style={{ display: 'flex', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
             <span className="tag">{job.work_type}</span>
-            <span className="tag">🌾 {job.crop}</span>
+            <span className="tag">{job.crop}</span>
             <span className={`badge ${urgency}`}>{spotsLeft} spots left</span>
           </div>
           <h3 style={{ fontSize: 16, fontWeight: 700 }}>{job.title}</h3>

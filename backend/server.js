@@ -64,4 +64,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong. Please try again.' });
 });
 
-app.listen(PORT, () => console.log(`Kisan API running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Kisan Platform API running on port ${PORT}`));

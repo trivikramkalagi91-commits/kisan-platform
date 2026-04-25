@@ -256,7 +256,7 @@ export default function CropAdvisor() {
 
       {/* ── Farm Details ─────────────────────────────────────────────── */}
       <div className="card" style={{ marginBottom: 24 }}>
-        <h3 style={{ fontWeight: 700, marginBottom: 16 }}>🌾 Tell us about your farm</h3>
+        <h3 style={{ fontWeight: 700, marginBottom: 16 }}>Tell us about your farm</h3>
         <div className="form-row">
           <div className="form-group">
             <label>Land (acres)</label>

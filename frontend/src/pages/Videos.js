@@ -141,7 +141,7 @@ export default function Videos() {
       <div style={{ display:'flex', gap:8, marginBottom:20, flexWrap:'wrap' }}>
         <select value={filters.crop} onChange={e => handleFilterChange('crop', e.target.value)}
           style={{ flex:1, minWidth:150, border:'1px solid #e5e7eb', borderRadius:8, padding:'8px 10px', fontSize:13, background:'white' }}>
-          <option value="">🌾 All Crops ({crops.length})</option>
+          <option value="">All Crops ({crops.length})</option>
           {crops.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
         <select value={filters.language} onChange={e => handleFilterChange('language', e.target.value)}
@@ -215,7 +215,7 @@ export default function Videos() {
             <div key={crop} style={{ marginBottom:26 }}>
               <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:10,
                 paddingBottom:8, borderBottom:'2px solid #e5e7eb' }}>
-                <h3 style={{ fontSize:16, fontWeight:700, margin:0 }}>🌾 {crop}</h3>
+                <h3 style={{ fontSize:16, fontWeight:700, margin:0 }}>{crop}</h3>
                 <div style={{ display:'flex', gap:4 }}>
                   {vids.map(v => (
                     <span key={v.id} style={{

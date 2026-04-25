@@ -192,7 +192,7 @@ export default function CropPrices() {
       {/* Loading */}
       {loading && (
         <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-          <div style={{ fontSize: 36, marginBottom: 12 }}>🌾</div>
+          <div style={{ fontSize: 36, marginBottom: 12 }}></div>
           <p style={{ color: '#6b7280' }}>Fetching prices from AgMarknet...</p>
         </div>
       )}

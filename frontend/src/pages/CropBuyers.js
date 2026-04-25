@@ -124,7 +124,7 @@ function BuyerCard({ buyer, accent }) {
       <p style={{ fontSize: 13, color: '#4b5563', lineHeight: 1.7, marginBottom: 14 }}>{buyer.desc}</p>
       {buyer.crops && (
         <div style={{ fontSize: 12, color: '#6b7280', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
-          <span>🌾</span> <strong>Crops:</strong> {buyer.crops}
+          <span></span> <strong>Crops:</strong> {buyer.crops}
         </div>
       )}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: buyer.link ? 14 : 0 }}>
@@ -281,7 +281,7 @@ export default function CropBuyers() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10 }}>
           {[
-            { crop: '🌾 Wheat', price: '₹2,275/qtl' },
+            { crop: 'Wheat', price: '₹2,275/qtl' },
             { crop: '🍚 Rice (Paddy)', price: '₹2,300/qtl' },
             { crop: '🌻 Mustard', price: '₹5,650/qtl' },
             { crop: '🫘 Moong Dal', price: '₹8,558/qtl' },

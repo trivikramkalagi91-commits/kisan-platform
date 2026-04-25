@@ -33,7 +33,7 @@ export default function Home() {
       <div style={{ background: 'linear-gradient(135deg,#1b5e20 0%,#2d6a2d 60%,#33691e 100%)', borderRadius: 16, padding: '44px 28px', color: 'white', marginBottom: 28, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ fontSize: 12, background: 'rgba(255,255,255,0.15)', display: 'inline-block', padding: '4px 14px', borderRadius: 20, marginBottom: 14 }}>🇮🇳 Complete Super App for Indian Farmers — All 14 Modules</div>
-          <h1 style={{ fontSize: 34, fontWeight: 800, lineHeight: 1.2, marginBottom: 12 }}>Kisan Platform 🌾</h1>
+          <h1 style={{ fontSize: 34, fontWeight: 800, lineHeight: 1.2, marginBottom: 12 }}>Kisan Platform</h1>
           <p style={{ fontSize: 15, opacity: 0.9, maxWidth: 520, marginBottom: 24, lineHeight: 1.7 }}>
             Live crop prices, government schemes &amp; subsidies, labour hiring, marketplace, barter, AI crop advisor, fear crusher, videos, finance and business hub — everything a farmer needs, free forever.
           </p>
@@ -42,7 +42,7 @@ export default function Home() {
             <button onClick={() => navigate('/advisor')} style={{ background: 'rgba(255,255,255,0.15)', color: 'white', border: '1.5px solid rgba(255,255,255,0.4)', borderRadius: 8, padding: '10px 20px', fontWeight: 500, fontSize: 14, cursor: 'pointer' }}>AI Crop Advisor</button>
           </div>
         </div>
-        <div style={{ position: 'absolute', right: -20, top: -20, fontSize: 130, opacity: 0.07 }}>🌾</div>
+        <div style={{ position: 'absolute', right: -20, top: -20, fontSize: 130, opacity: 0.07 }}></div>
       </div>
 
       {/* Stats */}

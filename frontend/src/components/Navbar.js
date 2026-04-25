@@ -203,7 +203,7 @@ export default function Navbar() {
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 12px', display: 'flex', alignItems: 'center', height: 56, gap: 8 }}>
         <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', marginRight: 8, flexShrink: 0 }}>
-          <span style={{ fontSize: 24 }}>🌾</span>
+          <span style={{ fontSize: 24 }}></span>
           <div>
             <div style={{ fontWeight: 700, fontSize: 15, color: '#2d6a2d', lineHeight: 1.1 }}>Kisan Platform</div>
             <div style={{ fontSize: 10, color: '#6b7280' }}>ಕಿಸಾನ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್</div>

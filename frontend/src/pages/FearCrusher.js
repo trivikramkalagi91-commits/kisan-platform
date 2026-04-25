@@ -233,7 +233,7 @@ export default function FearCrusher() {
         )}
       </div>
 
-      {recLoading && <div className="loading">🌾 Analyzing soil, climate and market data...</div>}
+      {recLoading && <div className="loading">Analyzing soil, climate and market data...</div>}
 
       {/* ── RECOMMENDED CROPS ── */}
       {recommended.length > 0 && (

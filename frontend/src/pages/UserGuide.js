@@ -11,7 +11,7 @@ const GUIDE_SECTIONS = [
     bg: '#f0fdf4',
     border: '#bbf7d0',
     steps: [
-      { title: 'Open the App', desc: 'Visit the Kisan Platform from your phone or computer. No login or sign-up needed — it\'s completely free!' },
+      { title: 'Open the App', desc: 'Visit Kisan Platform from your phone or computer. No login or sign-up needed — it\'s completely free!' },
       { title: 'Choose Your Language', desc: 'Click the 🌐 language button on the top right corner. We support Hindi, Kannada, Telugu, Tamil, Marathi, Gujarati, Bengali, Punjabi, Malayalam, Odia and Urdu.' },
       { title: 'Explore Modules', desc: 'The Home page shows all available modules. Tap any card to open that feature. Each module is designed to solve a specific problem for farmers.' },
     ]
@@ -205,7 +205,7 @@ export default function UserGuide() {
               📖 Complete Guide · Step-by-Step
             </div>
             <div style={{ fontSize: 11, background: '#2563eb', display: 'inline-block', padding: '4px 14px', borderRadius: 99, border: '1px solid rgba(255,255,255,0.3)' }}>
-              🌾 For Indian Farmers
+              For Indian Farmers
             </div>
           </div>
           <h1 style={{ fontSize: 32, fontWeight: 800, lineHeight: 1.2, marginBottom: 10 }}>
