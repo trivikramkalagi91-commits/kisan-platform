@@ -4,8 +4,7 @@ import { NavLink } from 'react-router-dom';
 const NAV_ITEMS = [
   { path: '/', label: 'Home' },
   { path: '/prices', label: 'Prices' },
-  { path: '/schemes', label: 'Schemes' },
-  { path: '/subsidy', label: 'Subsidy' },
+  { path: '/schemes', label: 'Govt Schemes' },
   { path: '/crop-health', label: '🔬 Crop AI' },
   { path: '/labour', label: 'Labour' },
   { path: '/marketplace', label: 'Market' },

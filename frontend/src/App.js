@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Chatbot from './components/Chatbot';
 import Home from './pages/Home';
 import CropPrices from './pages/CropPrices';
-import Schemes from './pages/Schemes';
+import SchemesSubsidies from './pages/SchemesSubsidies';
 import Labour from './pages/Labour';
 import Marketplace from './pages/Marketplace';
 import Barter from './pages/Barter';
@@ -13,7 +14,6 @@ import Videos from './pages/Videos';
 import Finance from './pages/Finance';
 import BusinessHub from './pages/BusinessHub';
 import SmartIrrigation from './pages/SmartIrrigation';
-import Subsidy from './pages/Subsidy';
 import CropHealthAI from './pages/CropHealthAI';
 import UserGuide from './pages/UserGuide';
 import CropBuyers from './pages/CropBuyers';
@@ -27,7 +27,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/prices" element={<CropPrices />} />
-          <Route path="/schemes" element={<Schemes />} />
+          <Route path="/schemes" element={<SchemesSubsidies />} />
+          <Route path="/subsidy" element={<SchemesSubsidies />} />
           <Route path="/labour" element={<Labour />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/barter" element={<Barter />} />
@@ -37,12 +38,12 @@ export default function App() {
           <Route path="/finance" element={<Finance />} />
           <Route path="/business" element={<BusinessHub />} />
           <Route path="/irrigation" element={<SmartIrrigation />} />
-          <Route path="/subsidy" element={<Subsidy />} />
           <Route path="/crop-health" element={<CropHealthAI />} />
           <Route path="/guide" element={<UserGuide />} />
           <Route path="/buyers" element={<CropBuyers />} />
         </Routes>
       </main>
+      <Chatbot />
       <footer style={{ textAlign: 'center', padding: '24px 16px', color: '#9ca3af', fontSize: 13, borderTop: '1px solid #e5e7eb', background: 'white', marginTop: 40 }}>
         <div style={{ fontSize: 24, marginBottom: 8 }}></div>
         <div style={{ fontWeight: 600, color: '#374151', marginBottom: 4 }}>Kisan Platform</div>
