@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2d6a2d" />
+  <meta name="description"
+    content="Kisan Platform — Live crop prices, government schemes, subsidies, labour hiring and farmer marketplace for Indian farmers" />
+  <title>Kisan Platform 🌾</title>
+
+  <!--
+    Google Translate Integration
+    ─────────────────────────────
+    Strategy:
+    1. We load the Google Translate script in the background.
+    2. We initialise with the hidden widget (no layout impact).
+    3. Our custom Navbar dropdown controls language by manipulating
+       the googtrans cookie and the hidden select element.
+    4. The toolbar banner is hidden via CSS in Navbar.js to prevent
+       layout shift (body top:0 override).
+    5. Language is persisted in localStorage (key: kisan_lang).
+    ─────────────────────────────
+  -->
+  <script type="text/javascript">
+    // Initialise Google Translate with a hidden element — no visible widget
+    function googleTranslateElementInit() {
+      try {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            includedLanguages: 'hi,kn,te,ta,mr,pa,gu,bn,ml,or,ur',
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            gaTrack: false,
+          },
+          'google_translate_element'
+        );
+      } catch (e) {
+        // Google Translate failed to load — not critical, app works normally
+        console.warn('Google Translate could not be initialised:', e);
+      }
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async
+    defer onerror="console.warn('Google Translate script failed to load. The app works normally without it.')"></script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+
+</html>
