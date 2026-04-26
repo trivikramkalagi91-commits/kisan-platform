@@ -79,5 +79,6 @@ export const getSubsidies = (params) => api.get('/subsidy', { params });
 export const getSubsidy = (id) => api.get(`/subsidy/${id}`);
 export const applySubsidy = (data) => api.post('/subsidy/apply', data);
 export const getSubsidyApplication = (ref) => api.get(`/subsidy/application/${ref}`);
+export const updateSubsidyApplication = (id, data) => api.patch(`/subsidy/application/${id}`, data);
 
 export default api;

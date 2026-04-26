@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getSchemes, checkEligibility, getSubsidyMeta, getSubsidies, applySubsidy } from '../utils/api';
+import { getSchemes, checkEligibility, getSubsidyMeta, getSubsidies, applySubsidy, updateSubsidyApplication } from '../utils/api';
+import SubsidyAutoFill from '../components/SubsidyAutoFill';
 import axios from 'axios';
 
 // ─── Constants ──────────────────────────────────────────────────────────────
@@ -249,57 +250,33 @@ function SubsidyDetailModal({ sub, onClose, onApply }) {
 }
 
 function ApplicationModal({ sub, onClose }) {
-  const [form, setForm] = useState({ farmer_name: '', mobile: '', state: sub?.state || '', village: '', land_acres: '', farmer_category: 'small', crop: '', aadhaar_last4: '', notes: '' });
-  const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
-  const [error, setError] = useState('');
 
   if (!sub) return null;
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setError('');
-    if (!form.farmer_name.trim()) return setError('Please enter your name.');
-    if (!/^\d{10}$/.test(form.mobile)) return setError('Mobile number must be exactly 10 digits.');
-    setSubmitting(true);
-    try {
-      const res = await applySubsidy({ subsidy_id: sub.id, ...form });
-      setResult(res);
-    } catch (err) {
-      setError(err.message || 'Failed to submit.');
-    } finally { setSubmitting(false); }
-  }
-
   return (
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 1200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }} onClick={e => e.target === e.currentTarget && onClose()}>
-      <div style={{ background: 'white', borderRadius: 16, maxWidth: 560, width: '100%', maxHeight: '92vh', overflow: 'auto', padding: 28 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
-          <div><h2 style={{ fontSize: 19, fontWeight: 700 }}>Apply for Subsidy</h2><p style={{ fontSize: 13, color: '#6b7280' }}>{sub.name}</p></div>
-          <button onClick={onClose} style={{ background: 'none', fontSize: 22, color: '#6b7280', padding: 0 }}>✕</button>
-        </div>
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 1200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }} onClick={e => e.target === e.currentTarget && onClose()}>
+      <div style={{ background: '#f9fafb', borderRadius: 24, maxWidth: 560, width: '100%', maxHeight: '95vh', overflow: 'auto', padding: 10 }}>
         {result ? (
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 48 }}>✅</div>
-            <h3>Application Submitted!</h3>
-            <div style={{ background: '#e8f5e9', padding: 16, borderRadius: 10, margin: '16px 0' }}>
-              <div style={{ fontSize: 13 }}>Reference Number</div>
-              <div style={{ fontSize: 22, fontWeight: 800 }}>{result.data.reference_number}</div>
+          <div style={{ textAlign: 'center', padding: 40, background: 'white', borderRadius: 20 }}>
+            <div style={{ fontSize: 60, marginBottom: 20 }}>✅</div>
+            <h3 style={{ fontSize: 24, fontWeight: 800 }}>Success!</h3>
+            <p style={{ color: '#6b7280', marginBottom: 24 }}>Your application has been submitted through our AI assistant.</p>
+            <div style={{ background: '#e8f5e9', padding: 20, borderRadius: 16, marginBottom: 24 }}>
+              <div style={{ fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#2d6a2d', fontWeight: 700, marginBottom: 5 }}>Reference Number</div>
+              <div style={{ fontSize: 28, fontWeight: 900, color: '#1b431b' }}>{result.data.reference_number}</div>
             </div>
-            <button className="btn-secondary" onClick={onClose}>Close</button>
+            <button className="btn-primary" style={{ width: '100%' }} onClick={onClose}>Finish</button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            {error && <div className="error-msg">{error}</div>}
-            <div className="form-group"><label>Full Name *</label><input value={form.farmer_name} onChange={e => setForm({ ...form, farmer_name: e.target.value })} /></div>
-            <div className="form-group"><label>Mobile *</label><input value={form.mobile} onChange={e => setForm({ ...form, mobile: e.target.value.replace(/\D/g, '') })} /></div>
-            <div className="form-group"><label>State *</label>
-              <select value={form.state} onChange={e => setForm({ ...form, state: e.target.value })}>
-                <option value="">Select State</option>
-                {['Karnataka', 'Maharashtra', 'Punjab', 'Andhra Pradesh', 'Tamil Nadu'].map(s => <option key={s} value={s}>{s}</option>)}
-              </select>
-            </div>
-            <button type="submit" className="btn-primary" disabled={submitting}>{submitting ? 'Submitting...' : 'Submit Interest'}</button>
-          </form>
+          <div style={{ position: 'relative' }}>
+             <button onClick={onClose} style={{ position: 'absolute', right: 20, top: 20, background: '#eee', borderRadius: '50%', width: 30, height: 30, border: 'none', zIndex: 10, cursor: 'pointer' }}>✕</button>
+             <SubsidyAutoFill 
+               subsidy={sub} 
+               onClose={onClose} 
+               onComplete={(res) => setResult(res)} 
+             />
+          </div>
         )}
       </div>
     </div>
