@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: kisan-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: DATA_GOV_API_KEY
+        value: 579b464db66ec23bdd0000010e2fa3bdd6cc46045510fe4b90195799 # Pre-filled for convenience
+
+  - type: web
+    name: kisan-ai-api
+    env: python
+    plan: free
+    rootDir: crop_health_api
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: GEMINI_API_KEY
+        sync: false # Must be provided by user

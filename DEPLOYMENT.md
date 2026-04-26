@@ -1,78 +1,49 @@
-# 🚀 Deployment Guide: Kisan Platform
+# 🚀 One-Click Deployment: Kisan Platform
 
-Follow these steps to deploy your full stack application to **Vercel** (Frontend) and **Render** (Backends).
-
----
-
-## 1. Prerequisites
-- A GitHub repository containing the project.
-- A [Vercel](https://vercel.com/) account.
-- A [Render](https://render.com/) account.
-- A **Google Gemini API Key**.
+I have prepared **Automated Blueprints** (`render.yaml` and `vercel.json`) to make your deployment as fast as possible.
 
 ---
 
-## 2. Deploy Core Backend (Render)
-This is the Node.js server located in `kisan-platform/backend`.
+## 1. Deploy Backends (Render)
+I've added a `render.yaml` blueprint. This will set up **both** the Node.js backend and the Python AI API automatically.
 
-1. **Create New Service**: Go to Render Dashboard -> **New** -> **Web Service**.
-2. **Connect Repo**: Select your GitHub repo.
-3. **Configure**:
-   - **Name**: `kisan-backend`
-   - **Root Directory**: `kisan-platform/backend`
-   - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `node server.js`
-4. **Environment Variables**: Add these in the "Env Vars" tab:
-   - `PORT`: `5000` (or leave default)
-   - `NODE_ENV`: `production`
-   - *Any other variables from your `.env` file.*
-5. **Copy the URL**: Once deployed, copy the Render URL (e.g., `https://kisan-backend.onrender.com`).
+1.  Go to the [Render Blueprint Dashboard](https://dashboard.render.com/blueprints).
+2.  Click **New Blueprint Instance**.
+3.  Connect your GitHub repository.
+4.  Render will automatically detect the `render.yaml` and suggest:
+    - `kisan-backend` (Node.js)
+    - `kisan-ai-api` (Python AI)
+5.  **Important**: When prompted for `GEMINI_API_KEY`, paste your Google Gemini key.
+6.  Click **Deploy**.
 
 ---
 
-## 3. Deploy Crop Health AI API (Render)
-This is the Python Flask server located in `kisan-platform/crop_health_api`.
+## 2. Deploy Frontend (Vercel)
+I've added a `vercel.json` in the `frontend` folder.
 
-1. **Create New Service**: Go to Render Dashboard -> **New** -> **Web Service**.
-2. **Connect Repo**: Select your GitHub repo.
-3. **Configure**:
-   - **Name**: `kisan-ai-api`
-   - **Root Directory**: `kisan-platform/crop_health_api`
-   - **Environment**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app`
-4. **Environment Variables**:
-   - `GEMINI_API_KEY`: *Your Google Gemini API Key*
-   - `PYTHON_VERSION`: `3.10.0` (or higher)
-5. **Copy the URL**: Once deployed, copy the Render URL (e.g., `https://kisan-ai-api.onrender.com`).
+1.  Go to [Vercel Dashboard](https://vercel.com/new).
+2.  Import your GitHub repository.
+3.  When configuring the project:
+    - **Root Directory**: Select `frontend`.
+4.  Vercel will pick up the `vercel.json` settings automatically.
+5.  **Click Deploy**.
 
 ---
 
-## 4. Deploy Frontend (Vercel)
-This is the React application located in `kisan-platform/frontend`.
+## 🔗 Connecting Everything
+Once your Render services are live, verify the URLs:
+- Backend: `https://kisan-backend.onrender.com/api`
+- AI API: `https://kisan-ai-api.onrender.com`
 
-1. **Create Project**: Go to Vercel Dashboard -> **Add New** -> **Project**.
-2. **Connect Repo**: Select your GitHub repo.
-3. **Configure**:
-   - **Framework Preset**: `Create React App`
-   - **Root Directory**: `kisan-platform/frontend`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `build`
-4. **Environment Variables**: Add these before clicking Deploy:
-   - `REACT_APP_API_URL`: `https://your-kisan-backend.onrender.com/api` (Use the URL from Step 2)
-   - `REACT_APP_CROP_HEALTH_API`: `https://your-kisan-ai-api.onrender.com` (Use the URL from Step 3)
-5. **Deploy**: Click **Deploy**.
+If Render gave you different names (e.g., `kisan-backend-xyz.onrender.com`), simply go to your **Vercel Project Settings -> Environment Variables** and update:
+- `REACT_APP_API_URL`: `https://your-actual-name.onrender.com/api`
+- `REACT_APP_CROP_HEALTH_API`: `https://your-actual-name.onrender.com`
 
 ---
 
-## 💡 Important Notes
+## 💡 Troubleshooting
+- **First Scan is Slow?** Render's free tier "sleeps" after 15 mins. The first scan might take a minute to wake up the server.
+- **Crop Health Error?** Ensure your `GEMINI_API_KEY` is correct in the Render "Environment" settings for `kisan-ai-api`.
+- **CORS Issues?** I have already added `*.vercel.app` to the allowed origins in both backends.
 
-- **CORS Support**: Both backends are already configured to allow requests from `*.vercel.app`.
-- **Sleeping Services**: If you are using Render's **Free Tier**, the services will "spin down" after inactivity. The first request after a break might take 30-60 seconds to respond while the server wakes up.
-- **AI Performance**: The Crop Health AI uses Gemini 1.5 Flash, which is fast and efficient for production use.
-- **Image Size**: The frontend automatically compresses images before sending to the AI API to save bandwidth and ensure it works on rural networks.
-
----
-
-**Happy Farming!**
+**Your platform is ready for the world! 🌍🚜**
