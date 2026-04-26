@@ -1,6 +1,9 @@
-# Kisan Platform
+# 🌾 Kisan Platform: Premium AI Ecosystem for Farmers
 
-A complete super app for Indian farmers — built with React + Node.js.
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/trivikramkalagi91-commits/kisan-platform)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/trivikramkalagi91-commits/kisan-platform&root-directory=frontend)
+
+A state-of-the-art digital platform designed to empower farmers with AI-driven insights, real-time market data, and a unified government benefits dashboard.
 
 ## Modules included
 - 📈 **Live Crop Prices** — Real-time mandi prices via AgMarknet, 30-day trend charts, price alerts
