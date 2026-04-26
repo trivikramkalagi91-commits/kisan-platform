@@ -12,7 +12,7 @@ services:
       - key: PORT
         value: 5000
       - key: DATA_GOV_API_KEY
-        value: 579b464db66ec23bdd0000010e2fa3bdd6cc46045510fe4b90195799
+        sync: false # User will provide securely in Render dashboard
 
   - type: web
     name: kisan-ai-api
@@ -25,4 +25,4 @@ services:
       - key: PYTHON_VERSION
         value: 3.10.0
       - key: GEMINI_API_KEY
-        value: AIzaSyAjAFdyRFpvmO2NDYN8svIupygqHnlDu4M
+        sync: false # User will provide securely in Render dashboard
